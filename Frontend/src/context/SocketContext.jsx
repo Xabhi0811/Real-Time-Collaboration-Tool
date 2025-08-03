@@ -31,13 +31,12 @@ export const SocketProvider = ({ children }) => {
 
     socketInstance.on('connect_error', (err) => {
       console.error('Connection error:', err);
-      // Fallback to polling if websocket fails
       socketInstance.io.opts.transports = ['polling', 'websocket'];
     });
 
     setSocket(socketInstance);
 
-    return () => {
+    return () => {  
       if (socketInstance) socketInstance.disconnect();
     };
   }, []);
