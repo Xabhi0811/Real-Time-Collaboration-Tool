@@ -16,26 +16,29 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
-    const newSocket = io(backendUrl, {
+    const socketInstance = io(backendUrl, {
       withCredentials: true,
-      transports: ['websocket', 'polling'],
+      transports: ['websocket'],
       reconnection: true,
       reconnectionAttempts: 5,
-      reconnectionDelay: 1000
+      reconnectionDelay: 1000,
+      timeout: 20000
     });
 
-    newSocket.on('connect', () => {
+    socketInstance.on('connect', () => {
       console.log('Connected to WebSocket server');
     });
 
-    newSocket.on('connect_error', (err) => {
-      console.error('Connection error:', err.message);
+    socketInstance.on('connect_error', (err) => {
+      console.error('Connection error:', err);
+      // Fallback to polling if websocket fails
+      socketInstance.io.opts.transports = ['polling', 'websocket'];
     });
 
-    setSocket(newSocket);
+    setSocket(socketInstance);
 
     return () => {
-      newSocket.disconnect();
+      if (socketInstance) socketInstance.disconnect();
     };
   }, []);
 
