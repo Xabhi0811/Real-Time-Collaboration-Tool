@@ -73,14 +73,6 @@ npm install      # or yarn
 
 Create **Backend/.env**:
 
-```
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=super_secret_key
-CLIENT_URL=http://localhost:5173
-# SOCKET_PATH=/socket.io  # if customized
-```
-
 Start backend:
 
 ```bash
@@ -95,11 +87,6 @@ npm install
 ```
 
 Create **Frontend/.env** (Vite syntax shown):
-
-```
-VITE_API_URL=http://localhost:5000
-VITE_SOCKET_URL=http://localhost:5000
-```
 
 Start frontend:
 
