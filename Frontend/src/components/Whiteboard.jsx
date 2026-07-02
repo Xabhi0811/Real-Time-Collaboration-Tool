@@ -9,6 +9,7 @@ const Whiteboard = ({ whiteboardId, initialElements }) => {
   const canvasRef = useRef(null);
   const ctxRef = useRef(null);
 
+  
   useEffect(() => {
     if (!socket) return;
 
