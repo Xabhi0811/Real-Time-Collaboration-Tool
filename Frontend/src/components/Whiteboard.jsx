@@ -8,7 +8,6 @@ const Whiteboard = ({ whiteboardId, initialElements }) => {
   const [users, setUsers] = useState({});
   const canvasRef = useRef(null);
   const ctxRef = useRef(null);
-
   
   useEffect(() => {
     if (!socket) return;
