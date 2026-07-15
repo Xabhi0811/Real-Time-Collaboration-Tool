@@ -19,6 +19,7 @@ function App() {
                   <div className="flex-shrink-0 flex items-center">
                     <span className="text-xl font-bold text-blue-600">CollabTool</span>
                   </div>
+                  
                   <div className="ml-6 flex space-x-8">
                     <Link to="/" className="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                       Home
