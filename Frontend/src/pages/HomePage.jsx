@@ -10,6 +10,7 @@ const HomePage = () => {
   const [itemToDelete, setItemToDelete] = useState({ type: '', id: '' });
   const navigate = useNavigate();
   const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+  
 
   useEffect(() => {
     const fetchData = async () => {
