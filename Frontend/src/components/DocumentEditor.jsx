@@ -12,7 +12,6 @@ const DocumentEditor = ({ documentId, initialContent }) => {
   useEffect(() => {
     if (!socket) return;
     
-
     socket.emit('join-room', documentId);
 
     socket.on('doc-update', (newContent) => {
