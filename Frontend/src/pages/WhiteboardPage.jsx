@@ -10,6 +10,7 @@ const WhiteboardPage = () => {
   const [showConfirm, setShowConfirm] = useState(false);
   const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
+  
   useEffect(() => {
     const fetchWhiteboard = async () => {
       try {
